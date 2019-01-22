@@ -1,6 +1,8 @@
 var router = require('express').Router();
 var burger = require('./models/burger.js');
 
+
+//does the jquery for the index go here??????
 router.get("/", function(request, response){
     burger.selectAll(function(data){
         var burgObj = {
@@ -25,9 +27,12 @@ router.post("/", function(request, response){
 });
 
 router.put("/", function(request, response){
-    var condition = "id = " + ;//data attribute from devour button
-    burger.updateOne(["devoured"], []
-    
-    )
-})
+    var condition = "id = " ;//data attribute from devour button
+    burger.updateOne(["devoured: true"], condition, function(result){
+        //does the jquery go here to update view???  location reload???
+        console.log("update successful")
+        response.status(200).end();
+    });
+});
+
 
