@@ -1,5 +1,5 @@
 var router = require('express').Router();
-var burger = require('./models/burger.js');
+var burger = require('../models/burger.js');
 
 
 //does the jquery for the index go here??????
@@ -18,7 +18,7 @@ router.post("/", function(request, response){
         [
         "name", "devoured"
         ], 
-        [request.body.name, request.body.devoured],
+        [request.body.name, "false"],
         function(result){
             //probably need to do something different here to render on index
             response.json(result);
@@ -35,4 +35,4 @@ router.put("/", function(request, response){
     });
 });
 
-
+module.exports = router;

@@ -1,0 +1,41 @@
+.carousel-caption {
+    position: absolute;
+    right: 15%;
+    bottom: 50%;
+    left: 15%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: black;
+    text-align: center;
+    background-color: white;
+    opacity: .75
+}
+h1 {
+    font-size: 3.0rem;
+}
+.container {
+    margin: auto;
+    margin-top: 5%
+}
+
+#notDevoured {
+    align-content: center;
+    margin-left: 9%;
+
+}
+
+#devoured {
+    align-content: center;
+    margin-left: 38%;
+}
+
+#addBurger {
+    align-content: center;
+    margin: auto;
+    margin-top: 8%;
+    text-align: center;
+}
+body {
+    background-color: darkslategray;
+}
