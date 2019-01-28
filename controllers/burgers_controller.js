@@ -2,7 +2,6 @@ var router = require('express').Router();
 var burger = require('../models/burger.js');
 
 
-//does the jquery for the index go here??????
 router.get("/", function(request, response){
     burger.selectAll(function(data){
         var burgObj = {
@@ -12,25 +11,28 @@ router.get("/", function(request, response){
         response.render("index", burgObj);
     });
 });
-//not sure on all of the post/put 
-router.post("/", function(request, response){
+router.post("/api/burgers/", function(request, response){
+    console.log(request.body);
     burger.insertOne(
         [
-        "name", "devoured"
+        "burger_name", "devoured"
         ], 
-        [request.body.name, "false"],
+        [request.body.burger_name, "false"],
         function(result){
+            
             //probably need to do something different here to render on index
-            response.json(result);
+            response.status(200).end();
         }
     );
 });
-
-router.put("/", function(request, response){
-    var condition = "id = " ;//data attribute from devour button
-    burger.updateOne(["devoured: true"], condition, function(result){
-        //does the jquery go here to update view???  location reload???
-        console.log("update successful")
+//use postman for all this
+router.put("/api/burgers/", function(request, response){
+    var condition = {
+        id: request.body.id
+     };//data attribute from devour button
+    burger.updateOne({"devoured": 1}, condition, function(result){
+        console.log("update successful");
+        
         response.status(200).end();
     });
 });

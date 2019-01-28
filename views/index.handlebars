@@ -1,19 +1,19 @@
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="../public/assets/img/bread-3035491_1920.jpg" class="d-block w-100" alt="...">
+            <img src="./assets/img/bread-3035491_1920.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption">
                     <h1>Hungry??? Pick a burger!! </h1>
             </div>
         </div>
         <div class="carousel-item">
-                <img src="../public/assets/img/burger-1835192_1920.jpg" class="d-block w-100" alt="...">
+                <img src="./assets/img/burger-1835192_1920.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption">
                     <h1>Hungry??? Pick a burger!! </h1>
                 </div>
         </div>
         <div class="carousel-item">
-                <img src="../public/assets/img/hamburger-494706_1920.jpg" class="d-block w-100" alt="...">
+                <img src="./assets/img/hamburger-494706_1920.jpg" class="d-block w-100" alt="...">
                  <div class="carousel-caption">
                     <h1>Hungry??? Pick a burger!! </h1>
                 </div>
@@ -22,19 +22,22 @@
 </div>
 <div class="container">
 <div class="row">
-<div class="col-md-3" id="notDevoured">
+<div class="col-md-6" id="notDevoured">
     {{#each burgers}}
         {{#unless devoured}} 
+        <ul class="list-group notDevoured">
+            {{burger_name}}
+        </ul>
         <button class="devour-burger" data-id="{{this.id}}">Devour</button>
         {{/unless}}
     {{/each}}   
 </div>
-    <div class="col-md-3" id="notDevoured">
-    <ul class="list-group">
+    <div class="col-md-6" id="Devoured">
+    <ul class="list-group devoured" >
     {{#each burgers}}
         {{#if devoured}} 
-        <li class="list-group-item">{{this.burger_name}}</li>
-              <button data-id="{{this.id}}" class="update">Devour</button>
+        <li class="list-group-item">{{burger_name}}</li>
+
         </li>
         {{/if}}
     {{/each}}  
@@ -43,17 +46,17 @@
 </div>
 
 
-<div class="col-md-12">
+<div class="col-md-12" id="form-container">
     <h2>Add a Burger</h2>
-        <form class="create-form">
+        <form class="create-form" method="POST">
 
             <div class="form-group">
                 <label for="burger">Which burger do you want to add?</label>
                 </br>
-                <textarea class="form-control-lg" id="name" rows="1"></textarea>
+                <input class="form-control-lg" name="burgerId" id="newBurger" type="text" rows="1"></input>
             </div>
        
-            <button type="submit">Add Burger</button>
+            <button type="submit" id="addBurger">Add Burger</button>
 
         </form>
 </div>
