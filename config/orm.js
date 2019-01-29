@@ -33,7 +33,10 @@ updateOne: function (table, colVals, condition, cb){
     var query = "UPDATE " + table;
 
     query += " SET ";
+  
+
     query += objToSql(colVals);
+ 
     query += " WHERE ";
     query += condition;
 
@@ -67,11 +70,11 @@ function printQuestionMarks(num) {
       if (Object.hasOwnProperty.call(ob, key)) {
         // if string with spaces, add quotations (Lana Del Grey => 'Lana Del Grey')
         if (typeof value === "string" && value.indexOf(" ") >= 0) {
-          value = "'" + value + "'";
+          value = "" + value + "'";
         }
         // e.g. {name: 'Lana Del Grey'} => ["name='Lana Del Grey'"]
         // e.g. {sleepy: true} => ["sleepy=true"]
-        arr.push(key + "=" + value);
+        arr.push("`" + key + "`" + "= " + value);
       }
     }
   

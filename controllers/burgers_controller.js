@@ -27,9 +27,11 @@ router.post("/api/burgers/", function(request, response){
 });
 //use postman for all this
 router.put("/api/burgers/", function(request, response){
-    var condition = {
-        id: request.body.id
-     };//data attribute from devour button
+    // var condition = {
+    //     id: request.body.id
+    //  };
+     condition = `id = ${request.body.id}`;
+     console.log(condition)//data attribute from devour button
     burger.updateOne({"devoured": 1}, condition, function(result){
         console.log("update successful");
         
