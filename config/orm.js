@@ -38,7 +38,7 @@ updateOne: function (table, colVals, condition, cb){
     query += objToSql(colVals);
  
     query += " WHERE ";
-    query += condition;
+    query += objToSql(condition);
 
     console.log(query);
 

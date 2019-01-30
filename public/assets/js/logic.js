@@ -1,9 +1,10 @@
 $(document).ready(function(){
     $('.devour-burger').on("click", function(event){
         event.preventDefault();
-        var data = $(this).attr('data-id');
+        
         var newDevouredState = {
-            id: data,
+            conditionField:'id',
+            conditionValue: $(this).attr('data-id'),
             devoured: 1,
         }
         console.log(data);
